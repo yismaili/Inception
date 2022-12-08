@@ -22,3 +22,31 @@ Once you have confirmed that you have one of these versions of Debian installed,
 1 - Update your system's package list by running the following command:
 
         $sudo apt-get update
+ 
+2 - Install the necessary dependencies for Docker by running the following command:
+        
+        $sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+
+3 - Add the Docker GPG key to your system by running the following command:
+
+        $curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+        
+4 - Add the Docker repository to your system's list of sources by running the following command:
+
+        $sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+        
+5 - Update your system's package list again to include the Docker packages by running the following command:
+
+        $sudo apt-get update
+6 - Install Docker by running the following command:
+        
+        $sudo apt-get install docker-ce
+        
+7 - Start the Docker service by running the following command:
+
+        $sudo systemctl start docker
+        
+8 - Verify that Docker is running by running the following command:
+        
+        $sudo docker run hello-world
+If the installation was successful, You can now use Docker to run containers on your system ohhhh
