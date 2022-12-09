@@ -21,47 +21,48 @@ Once you have confirmed that you have one of these versions of Debian installed,
 
 1 - Update your system's package list by running the following command:
 
-        $sudo apt-get update
+        sudo apt-get update
  
 2 - Install the necessary dependencies for Docker by running the following command:
         
-        $sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+        sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 
 3 - Add the Docker GPG key to your system by running the following command:
 
-        $curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+        curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
         
 4 - Add the Docker repository to your system's list of sources by running the following command:
 
-        $sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+        sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
         
 5 - Update your system's package list again to include the Docker packages by running the following command:
 
-        $sudo apt-get update
+        sudo apt-get update
+        
 6 - Install Docker by running the following command:
         
-        $sudo apt-get install docker-ce
+        sudo apt-get install docker-ce
         
 7 - Start the Docker service by running the following command:
 
-        $sudo systemctl start docker
+        sudo systemctl start docker
         
 8 - Verify that Docker is running by running the following command:
         
-        $sudo docker run hello-world
+        sudo docker run hello-world
 ->. If the installation was successful, You can now use Docker to run containers on your system  and thanks me ohhhh "Hi there 👋 i am error from 1337 you know this"
 
 9 - To update Docker on Debian, you will need to first ensure that you have the latest version of the Docker package repository installed on your system. This can be done by running the following command:
 
-        $sudo apt-get update
+        sudo apt-get update
 
 10 - Once the package repository is up to date, you can then upgrade Docker by running the following command:
 
-        $sudo apt-get upgrade docker-ce
+        sudo apt-get upgrade docker-ce
 
 11 - This will install the latest version of Docker that is available in the package repository. If you want to be more specific about the version of Docker that you want to install, you can specify the version number using the -V option, like this:
 
-        $sudo apt-get install docker-ce=<version>
+        sudo apt-get install docker-ce=<version>
 
 ->. where <version> is the version number of the Docker package that you want to install.
 
