@@ -50,3 +50,21 @@ Once you have confirmed that you have one of these versions of Debian installed,
         
         $sudo docker run hello-world
 If the installation was successful, You can now use Docker to run containers on your system ohhhh
+
+9 - To update Docker on Debian, you will need to first ensure that you have the latest version of the Docker package repository installed on your system. This can be done by running the following command:
+
+        $sudo apt-get update
+
+10 - Once the package repository is up to date, you can then upgrade Docker by running the following command:
+
+        $sudo apt-get upgrade docker-ce
+
+11 - This will install the latest version of Docker that is available in the package repository. If you want to be more specific about the version of Docker that you want to install, you can specify the version number using the -V option, like this:
+
+        $sudo apt-get install docker-ce=<version>
+
+->. where <version> is the version number of the Docker package that you want to install.
+
+It's also a good idea to run the docker system prune command after upgrading Docker to remove any old or unused data from the system. This can help to free up disk space and improve the performance of Docker.
+
+
