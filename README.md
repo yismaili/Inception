@@ -49,7 +49,7 @@ Once you have confirmed that you have one of these versions of Debian installed,
 8 - Verify that Docker is running by running the following command:
         
         $sudo docker run hello-world
-->. If the installation was successful, You can now use Docker to run containers on your system  and thanks me ohhhh "hey you i am error from 1337 you know this"
+->. If the installation was successful, You can now use Docker to run containers on your system  and thanks me ohhhh "Hi there 👋 i am error from 1337 you know this"
 
 9 - To update Docker on Debian, you will need to first ensure that you have the latest version of the Docker package repository installed on your system. This can be done by running the following command:
 
