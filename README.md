@@ -152,3 +152,12 @@ packaged to run in Docker and has been published on a public site that anyone ca
                 
         docker container rm --force $(docker container ls --all --quiet)
  
+4 - how Docker runs containers   
+        
+        <img width="532" alt="Screen Shot 2022-12-13 at 4 54 59 PM" src="https://user-images.githubusercontent.com/69278312/207381504-91619e31-1a87-4e25-b58a-b016d9a29df9.png">
+ 
+The Docker Engine is the management component of Docker. It looks after the local image cache, downloading images when you need them, and reusing
+ 
+# Building your own Docker images
+  
+ 
