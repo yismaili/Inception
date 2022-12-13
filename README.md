@@ -102,7 +102,10 @@ packaged to run in Docker and has been published on a public site that anyone ca
 
  ->. Run the commands hostname and date and you’ll see details of the container’s environment:
         
-                       / # hostname
-   f1695de1f2ec
-   / # date
-   Thu Jun 20 12:18:26 UTC 2019
+                   / # hostname
+                   f1695de1f2ec
+                   / # date
+                   Thu Jun 20 12:18:26 UTC 2019
+->. You can get details of all the running containers with this command:
+                    
+        docker container ls
