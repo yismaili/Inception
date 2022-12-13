@@ -70,9 +70,8 @@ It's also a good idea to run the docker system prune command after upgrading Doc
 
 # Docker and running Hello World
         
-   1 - Running Hello World in a container :
+1 - Running Hello World in a container :
+   You’re going to send a command to Docker, telling it to run a container that prints out some simple “Hello, World” text.
         
-        You’re going to send a command to Docker, telling it to run a container that prints out some simple “Hello, World” text.
-        
-                                docker container run diamol/ch02-hello-diamol
-        The docker container run command tells Docker to run an application in a container. This application has already been
+                          docker container run diamol/ch02-hello-diamol
+   The docker container run command tells Docker to run an application in a container. This application has already been
