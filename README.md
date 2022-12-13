@@ -199,9 +199,13 @@ Pull the container image for the web-ping application:
         
  The Dockerfile instructions are FROM, ENV, WORKDIR,COPY, and CMD; they’re in capitals, but that’s a convention, not a requirement. Here’s
 the breakdown for each instruction:
-        
- FROM—Every image has to start from another image. In this case, the web-ping image will use the diamol/node image as its starting point. That image has Node.js installed, which is everything the web-ping application needs to run.
- ENV—Sets values for environment variables. The syntax is [key]="[value]", and there are three ENV instructions here, setting up three different environ- ment variables.
- WORKDIR—Creates a directory in the container image filesystem, and sets that to be the current working directory. The forward-slash syntax works for Linux and Windows containers, so this will create /web-ping on Linux and C:\web-ping on Windows.
- COPY—Copies files or directories from the local filesystem into the container image. The syntax is [source path] [target path]—in this case, I’m copying app.js from my local machine into the working directory in the image.
- CMD—Specifies the command to run when Docker starts a container from the image. This runs Node.js, starting the application code in app.js.
+ 
+         FROM—Every image has to start from another image. In this case, the web-ping image will use the diamol/node image as its starting point. That image has Node.js installed, which is everything the web-ping application needs to run.
+
+         ENV—Sets values for environment variables. The syntax is [key]="[value]", and there are three ENV instructions here, setting up three different environ- ment variables.
+
+         WORKDIR—Creates a directory in the container image filesystem, and sets that to be the current working directory. The forward-slash syntax works for Linux and Windows containers, so this will create /web-ping on Linux and C:\web-ping on Windows.
+
+         COPY—Copies files or directories from the local filesystem into the container image. The syntax is [source path] [target path]—in this case, I’m copying app.js from my local machine into the working directory in the image.
+
+         CMD—Specifies the command to run when Docker starts a container from the image. This runs Node.js, starting the application code in app.js.
