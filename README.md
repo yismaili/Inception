@@ -145,4 +145,10 @@ packaged to run in Docker and has been published on a public site that anyone ca
 ->. Browse to http://localhost:8088 on a browser. That’s an HTTP request to the local computer, but the response (see figure 2.7) comes from the container. 
  <img width="519" alt="Screen Shot 2022-12-13 at 4 29 32 PM" src="https://user-images.githubusercontent.com/69278312/207375047-43647670-af16-4b11-aaa9-02d46ddca46f.png">
 
+->. docker container stats is another useful one: it shows a live view of how much CPU, memory, network, and disk the container is using. The output is slightly different for Linux and Windows containers:
         
+        docker container stats e53
+   When you’re done working with a container, you can remove it with docker container rm and the container ID, using the --force flag to force removal if the container is still running.
+                
+        docker container rm --force $(docker container ls --all --quiet)
+ 
