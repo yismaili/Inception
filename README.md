@@ -6,7 +6,14 @@ This project aims to broaden your knowledge of system administration by using Do
 Docker is an open source platform that enables developers to build, deploy, run, update and manage containers—standardized, executable components that combine application source code with the operating system (OS) libraries and dependencies required to run that code in any environment
 # Docker containers
 
-Docker containers are the live, running instances of Docker images. While Docker images are read-only files, containers are life, ephemeral, executable content. Users can interact with them, and administrators can adjust their settings and conditions using Docker commands
+A Docker container is the same idea as a physical container—think of it like a box with an application in it. Inside the box, the application seems to have a computer all to itself: it has its own machine name and IP address, and it also has its own disk drive.
+
+<img width="478" alt="Screen Shot 2022-12-13 at 3 38 05 PM" src="https://user-images.githubusercontent.com/69278312/207362543-fdf63f7e-802d-412f-83d0-0f6a5458db22.png">
+
+The application inside the box can’t see anything outside the box, but the box is running on a computer, and that computer can also be running lots of other boxes. The applications in those boxes have their own separate environments (managed by Docker), but they all share the CPU and memory of the computer, and they all share the computer’s operating system.
+
+<img width="679" alt="Screen Shot 2022-12-13 at 3 43 57 PM" src="https://user-images.githubusercontent.com/69278312/207364123-b99d40b7-cb86-4040-b064-5d7b116bdeb5.png">
+
 # Docker images
 
 Docker images contain executable application source code as well as all the tools, libraries, and dependencies that the application code needs to run as a container. When you run the Docker image, it becomes one instance (or multiple instances) of the container. 
@@ -79,3 +86,8 @@ It's also a good idea to run the docker system prune command after upgrading Doc
 
         
 packaged to run in Docker and has been published on a public site that anyone can access. The container package (which Docker calls an “image”) is named diamol/ ch02-hello-diamol. The command you’ve just entered tells Docker to run a container from that image.
+        
+ -> What happens if you run another container using the same command?
+
+   You’ll see similar output to the first run, but there will be differences. Docker already has a copy of the image locally so it doesn’t need to download the image first; it gets straight to running the container. The container output shows the same operating sys- tem details, because you’re using the same computer, but the computer name and the IP address of the container will be different:
+        
