@@ -114,3 +114,8 @@ packaged to run in Docker and has been published on a public site that anyone ca
           $ docker container top f1
           PID                 USER                TIME                COMMAND
           69622               root                0:00                /bin/sh
+->. docker container logs displays any log entries the container has collected:
+        
+           $ docker container logs f1
+           / # hostname
+           f1695de1f2ec
