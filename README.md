@@ -160,4 +160,13 @@ The Docker Engine is the management component of Docker. It looks after the loca
  
 # Building your own Docker images
   
+ 1 - Using a container image from Docker Hub
+Pull the container image for the web-ping application:
+                
+        docker image pull diamol/ch03-web-ping
+        
+ <img width="816" alt="Screen Shot 2022-12-13 at 5 47 38 PM" src="https://user-images.githubusercontent.com/69278312/207393730-24a80b58-2651-4376-9937-1a59b5e8a668.png">
+->. Let’s run a container from the image and see what the app does:
+        docker container run -d --name web-ping diamol/ch03-web-ping
  
+        
