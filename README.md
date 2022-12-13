@@ -93,7 +93,16 @@ packaged to run in Docker and has been published on a public site that anyone ca
   
 2 - Connecting to a container like a remote computer:
         
-   if you were connecting to a remote machine. You use the same docker container run command, but you pass some additional flags to run an interactive container with a connected terminal session
-            docker container run --interactive --tty diamol/base
-   
+  if you were connecting to a remote machine. You use the same docker container run command, but you pass some additional flags to run an interactive container with a connected terminal session
+         
+           docker container run --interactive --tty diamol/base
+  The --interactive flag tells Docker you want to set up a connection to the container, and the --tty flag means you want to connect to a terminal session inside the con- tainer
     
+<img width="744" alt="Screen Shot 2022-12-13 at 4 01 44 PM" src="https://user-images.githubusercontent.com/69278312/207368494-a07bb609-786c-434c-8f09-013c241051ef.png">
+
+ ->. Run the commands hostname and date and you’ll see details of the container’s environment:
+        
+                       / # hostname
+   f1695de1f2ec
+   / # date
+   Thu Jun 20 12:18:26 UTC 2019
