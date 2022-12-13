@@ -119,3 +119,30 @@ packaged to run in Docker and has been published on a public site that anyone ca
            $ docker container logs f1
            / # hostname
            f1695de1f2ec
+        
+->. docker container inspect shows you all the details of a container:
+        
+            docker container inspect f1
+        
+ 3 - Hosting a website in a container:
+        
+  ->. which shows all containers in any status:
+        
+        docker container ls --all
+ That’s actually the main use case for Docker: running server applications like websites, batch processes, and databases.
+   
+ ->. That’s actually the main use case for Docker: running server applications like websites, batch processes, and databases
+        
+        docker container run --detach --publish 8088:80 diamol/ch02-hello-diamol-web
+        
+ ->. Run docker container ls and you’ll see that the new container has the status Up:
+        
+         docker container ls
+    --detach—Starts the container in the background and shows the container ID 
+    --publish—Publishes a port from the container to the computer 
+        
+  <img width="771" alt="Screen Shot 2022-12-13 at 4 28 29 PM" src="https://user-images.githubusercontent.com/69278312/207374830-b0a63ffc-03dc-468a-b5ba-caa639fbe8d6.png">
+->. Browse to http://localhost:8088 on a browser. That’s an HTTP request to the local computer, but the response (see figure 2.7) comes from the container. 
+ <img width="519" alt="Screen Shot 2022-12-13 at 4 29 32 PM" src="https://user-images.githubusercontent.com/69278312/207375047-43647670-af16-4b11-aaa9-02d46ddca46f.png">
+
+        
