@@ -184,3 +184,24 @@ Pull the container image for the web-ping application:
           docker container run --env TARGET=google.com diamol/ch03-web-ping
   <img width="793" alt="Screen Shot 2022-12-13 at 5 55 36 PM" src="https://user-images.githubusercontent.com/69278312/207395524-2847b75f-d2b7-417a-a573-849c8453d308.png">
 
+<img width="922" alt="Screen Shot 2022-12-13 at 6 28 54 PM" src="https://user-images.githubusercontent.com/69278312/207402930-f6a30a38-79a7-455a-acce-d0ab9f035c54.png">
+
+2 - Writing Dockerfile
+ The Dockerfile is a simple script you write to package up an application—it’s a set of instructions, and a Docker image is the output
+   
+                FROM diamol/node
+                ENV TARGET="blog.sixeyed.com"
+                ENV METHOD="HEAD"
+                ENV INTERVAL="3000"
+                WORKDIR /web-ping
+                COPY app.js .
+               CMD ["node", "/web-ping/app.js"]
+        
+ The Dockerfile instructions are FROM, ENV, WORKDIR,COPY, and CMD; they’re in capitals, but that’s a convention, not a requirement. Here’s
+the breakdown for each instruction:
+        
+         FROM—Every image has to start from another image. In this case, the web-ping image will use the diamol/node image as its starting point. That image has Node.js installed, which is everything the web-ping application needs to run.
+         ENV—Sets values for environment variables. The syntax is [key]="[value]", and there are three ENV instructions here, setting up three different environ- ment variables.
+         WORKDIR—Creates a directory in the container image filesystem, and sets that to be the current working directory. The forward-slash syntax works for Linux and Windows containers, so this will create /web-ping on Linux and C:\web-ping on Windows.
+         COPY—Copies files or directories from the local filesystem into the container image. The syntax is [source path] [target path]—in this case, I’m copying app.js from my local machine into the working directory in the image.
+         CMD—Specifies the command to run when Docker starts a container from the image. This runs Node.js, starting the application code in app.js.
