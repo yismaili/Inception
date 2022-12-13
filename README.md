@@ -174,9 +174,8 @@ Pull the container image for the web-ping application:
  There’s one new flag in this command, which is --name. You know that you can work with containers using the ID that Docker generates, but you can also give them a friendly name. This container is called web-ping, and you can use that name to refer to the container instead of using the random ID.
 
 ->. Have a look at the logs from the application, which are being collected by Docker:
-        
-        
-   docker container logs web-ping
+            
+        docker container logs web-ping
 <img width="976" alt="Screen Shot 2022-12-13 at 5 52 24 PM" src="https://user-images.githubusercontent.com/69278312/207394887-a1230378-cdad-454a-8421-a6697688df23.png">
 
  
