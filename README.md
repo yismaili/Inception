@@ -182,5 +182,5 @@ Pull the container image for the web-ping application:
        
           docker rm -f web-ping
           docker container run --env TARGET=google.com diamol/ch03-web-ping
-        <img width="793" alt="Screen Shot 2022-12-13 at 5 55 36 PM" src="https://user-images.githubusercontent.com/69278312/207395524-2847b75f-d2b7-417a-a573-849c8453d308.png">
+  <img width="793" alt="Screen Shot 2022-12-13 at 5 55 36 PM" src="https://user-images.githubusercontent.com/69278312/207395524-2847b75f-d2b7-417a-a573-849c8453d308.png">
 
