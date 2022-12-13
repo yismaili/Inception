@@ -178,5 +178,9 @@ Pull the container image for the web-ping application:
         docker container logs web-ping
 <img width="976" alt="Screen Shot 2022-12-13 at 5 52 24 PM" src="https://user-images.githubusercontent.com/69278312/207394887-a1230378-cdad-454a-8421-a6697688df23.png">
 
- 
-        
+ ->. Remove the existing container, and run a new one with a value specified for the TARGET environment variable:
+       
+          docker rm -f web-ping
+          docker container run --env TARGET=google.com diamol/ch03-web-ping
+        <img width="793" alt="Screen Shot 2022-12-13 at 5 55 36 PM" src="https://user-images.githubusercontent.com/69278312/207395524-2847b75f-d2b7-417a-a573-849c8453d308.png">
+
