@@ -102,10 +102,15 @@ packaged to run in Docker and has been published on a public site that anyone ca
 
  ->. Run the commands hostname and date and you’ll see details of the container’s environment:
         
-                   / # hostname
+                   $ hostname
                    f1695de1f2ec
-                   / # date
+                   $ date
                    Thu Jun 20 12:18:26 UTC 2019
 ->. You can get details of all the running containers with this command:
                     
         docker container ls
+->. docker container top lists the processes running in the con- tainer. I’m using f1 as a short form of the container ID f1695de1f2ec:
+
+        $vdocker container top f1
+          PID                 USER                TIME                COMMAND
+          69622               root                0:00                /bin/sh
