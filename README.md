@@ -90,4 +90,10 @@ packaged to run in Docker and has been published on a public site that anyone ca
  -> What happens if you run another container using the same command?
 
    You’ll see similar output to the first run, but there will be differences. Docker already has a copy of the image locally so it doesn’t need to download the image first; it gets straight to running the container. The container output shows the same operating sys- tem details, because you’re using the same computer, but the computer name and the IP address of the container will be different:
+  
+2 - Connecting to a container like a remote computer:
         
+   if you were connecting to a remote machine. You use the same docker container run command, but you pass some additional flags to run an interactive container with a connected terminal session
+            docker container run --interactive --tty diamol/base
+   
+    
