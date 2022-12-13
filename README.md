@@ -68,4 +68,11 @@ Once you have confirmed that you have one of these versions of Debian installed,
 
 It's also a good idea to run the docker system prune command after upgrading Docker to remove any old or unused data from the system. This can help to free up disk space and improve the performance of Docker.
 
-
+# Docker and running Hello World
+        
+   1 - Running Hello World in a container :
+        
+        You’re going to send a command to Docker, telling it to run a container that prints out some simple “Hello, World” text.
+        
+                                docker container run diamol/ch02-hello-diamol
+        The docker container run command tells Docker to run an application in a container. This application has already been
