@@ -210,5 +210,7 @@ the breakdown for each instruction:
 
 ->. CMD—Specifies the command to run when Docker starts a container from the image. This runs Node.js, starting the application code in app.js.
 # Building container image
-        You need to build container image :
+ You need to build container image :
     It needs a name for the image, and it needs to know the location for all the files that it’s going to package into the image. You already have a terminal open in the right direc- tory, so you’re ready to go.
+->Turn this Dockerfile into a Docker image by running docker image build:
+          docker image build --tag web-ping .
