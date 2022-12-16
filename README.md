@@ -227,7 +227,7 @@ The --tag argument is the name for the image
         
         docker container run -e TARGET=docker.com -e INTERVAL=5000 web-ping
 
-        <img width="852" alt="Screen Shot 2022-12-16 at 2 35 02 PM" src="https://user-images.githubusercontent.com/69278312/208109861-6cb2432d-081b-4925-9ce3-386de0bcc5bb.png">
+<img width="852" alt="Screen Shot 2022-12-16 at 2 35 02 PM" src="https://user-images.githubusercontent.com/69278312/208109861-6cb2432d-081b-4925-9ce3-386de0bcc5bb.png">
         
 
 
