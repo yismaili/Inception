@@ -229,5 +229,30 @@ The --tag argument is the name for the image
 
 <img width="852" alt="Screen Shot 2022-12-16 at 2 35 02 PM" src="https://user-images.githubusercontent.com/69278312/208109861-6cb2432d-081b-4925-9ce3-386de0bcc5bb.png">
         
+1 - Docker images and image layers
+->Check the history for your web-ping image:
+        
+        docker image history web-ping
+A Docker image is a logical collection of image layers. Layers are the files that are physically stored in the Docker Engine’s cache.
+        
+ <img width="577" alt="Screen Shot 2022-12-16 at 4 59 42 PM" src="https://user-images.githubusercontent.com/69278312/208138620-469fe143-54bf-44de-bfb7-791fd03bce58.png">
+      
+-> You can list images with docker image ls, which also shows the size of the image. If you don’t include a filter in the command, you’ll see all images:
+        
+        docker image ls
+->The system df command shows exactly how much disk space Docker is using:
+        
+         docker system df
+
+ 2 - Optimizing Dockerfiles to use the image layer cache
+        
+Make a change to the app.js file in the ch03-web-ping direc- tory. It doesn’t have to be a code change; just adding a new empty line at the end of the file will do. 
+-> Then build a new version of your Docker image:
+        
+        docker image build -t web-ping:v2 .
+     
+
+
+
 
 
