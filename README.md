@@ -158,7 +158,7 @@ packaged to run in Docker and has been published on a public site that anyone ca
  
 The Docker Engine is the management component of Docker. It looks after the local image cache, downloading images when you need them, and reusing
  
-# Building your own Docker images
+# Building Docker images
   
  1 - Using a container image from Docker Hub
 Pull the container image for the web-ping application:
@@ -209,3 +209,6 @@ the breakdown for each instruction:
 ->. COPY—Copies files or directories from the local filesystem into the container image. The syntax is [source path] [target path]—in this case, I’m copying app.js from my local machine into the working directory in the image.
 
 ->. CMD—Specifies the command to run when Docker starts a container from the image. This runs Node.js, starting the application code in app.js.
+# Building container image
+        You need to build container image :
+    It needs a name for the image, and it needs to know the location for all the files that it’s going to package into the image. You already have a terminal open in the right direc- tory, so you’re ready to go.
