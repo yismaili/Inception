@@ -213,4 +213,13 @@ the breakdown for each instruction:
  You need to build container image :
     It needs a name for the image, and it needs to know the location for all the files that it’s going to package into the image. You already have a terminal open in the right direc- tory, so you’re ready to go.
 ->Turn this Dockerfile into a Docker image by running docker image build:
-          docker image build --tag web-ping .
+          
+        docker image build --tag web-ping .
+        
+The --tag argument is the name for the image
+ If you get any errors from the build command:
+ - need to check that the Docker Engine is started
+ - Then check that you’re in the right directory. You should be in the ch03-web-ping directory where the Dockerfile
+        <img width="686" alt="Screen Shot 2022-12-16 at 2 27 15 PM" src="https://user-images.githubusercontent.com/69278312/208109034-e5aacc4e-89f7-4359-8f15-a6cb9a80f7dd.png">
+
+        
