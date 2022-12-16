@@ -220,6 +220,14 @@ The --tag argument is the name for the image
  If you get any errors from the build command:
  - need to check that the Docker Engine is started
  - Then check that you’re in the right directory. You should be in the ch03-web-ping directory where the Dockerfile
-        <img width="686" alt="Screen Shot 2022-12-16 at 2 27 15 PM" src="https://user-images.githubusercontent.com/69278312/208109034-e5aacc4e-89f7-4359-8f15-a6cb9a80f7dd.png">
-
         
+        <img width="686" alt="Screen Shot 2022-12-16 at 2 27 15 PM" src="https://user-images.githubusercontent.com/69278312/208109034-e5aacc4e-89f7-4359-8f15-a6cb9a80f7dd.png">
+       
+-> Run a container from your own image to ping Docker’s website every five seconds:
+        
+        docker container run -e TARGET=docker.com -e INTERVAL=5000 web-ping
+
+        <img width="852" alt="Screen Shot 2022-12-16 at 2 35 02 PM" src="https://user-images.githubusercontent.com/69278312/208109861-6cb2432d-081b-4925-9ce3-386de0bcc5bb.png">
+        
+
+
