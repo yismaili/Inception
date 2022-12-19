@@ -30,8 +30,6 @@ Every Docker container starts with a simple text file containing instructions fo
         
           docker container run diamol/ch02-hello-diamol
    The docker container run command tells Docker to run an application in a container. This application has already been
-     <img width="636" alt="Screen Shot 2022-12-13 at 1 42 13 PM" src="https://user-images.githubusercontent.com/69278312/207321049-128841e9-c588-4331-a8de-8d732fdbc8ae.png">
-
         
 packaged to run in Docker and has been published on a public site that anyone can access. The container package (which Docker calls an “image”) is named diamol/ ch02-hello-diamol. The command you’ve just entered tells Docker to run a container from that image.
         
@@ -45,8 +43,6 @@ packaged to run in Docker and has been published on a public site that anyone ca
          
            docker container run --interactive --tty diamol/base
   The --interactive flag tells Docker you want to set up a connection to the container, and the --tty flag means you want to connect to a terminal session inside the con- tainer
-    
-<img width="744" alt="Screen Shot 2022-12-13 at 4 01 44 PM" src="https://user-images.githubusercontent.com/69278312/207368494-a07bb609-786c-434c-8f09-013c241051ef.png">
 
  ->. Run the commands hostname and date and you’ll see details of the container’s environment:
         
