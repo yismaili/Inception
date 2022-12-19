@@ -106,9 +106,7 @@ packaged to run in Docker and has been published on a public site that anyone ca
  
 The Docker Engine is the management component of Docker. It looks after the local image cache, downloading images when you need them, and reusing
  
-# Building Docker images
-  
- 1 - Using a container image from Docker Hub
+# Using a container image from Docker Hub
 Pull the container image for the web-ping application:
                 
         docker image pull diamol/ch03-web-ping
