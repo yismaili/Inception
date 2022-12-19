@@ -111,7 +111,6 @@ Pull the container image for the web-ping application:
                 
         docker image pull diamol/ch03-web-ping
         
- <img width="816" alt="Screen Shot 2022-12-13 at 5 47 38 PM" src="https://user-images.githubusercontent.com/69278312/207393730-24a80b58-2651-4376-9937-1a59b5e8a668.png">
 ->. Let’s run a container from the image and see what the app does:
         
         docker container run -d --name web-ping diamol/ch03-web-ping
@@ -122,13 +121,11 @@ Pull the container image for the web-ping application:
 ->. Have a look at the logs from the application, which are being collected by Docker:
             
         docker container logs web-ping
-<img width="976" alt="Screen Shot 2022-12-13 at 5 52 24 PM" src="https://user-images.githubusercontent.com/69278312/207394887-a1230378-cdad-454a-8421-a6697688df23.png">
 
  ->. Remove the existing container, and run a new one with a value specified for the TARGET environment variable:
        
           docker rm -f web-ping
           docker container run --env TARGET=google.com diamol/ch03-web-ping
-  <img width="793" alt="Screen Shot 2022-12-13 at 5 55 36 PM" src="https://user-images.githubusercontent.com/69278312/207395524-2847b75f-d2b7-417a-a573-849c8453d308.png">
 
 <img width="922" alt="Screen Shot 2022-12-13 at 6 28 54 PM" src="https://user-images.githubusercontent.com/69278312/207402930-f6a30a38-79a7-455a-acce-d0ab9f035c54.png">
 
@@ -167,7 +164,7 @@ The --tag argument is the name for the image
  - need to check that the Docker Engine is started
  - Then check that you’re in the right directory. You should be in the ch03-web-ping directory where the Dockerfile
         
-        <img width="686" alt="Screen Shot 2022-12-16 at 2 27 15 PM" src="https://user-images.githubusercontent.com/69278312/208109034-e5aacc4e-89f7-4359-8f15-a6cb9a80f7dd.png">
+ <img width="686" alt="Screen Shot 2022-12-16 at 2 27 15 PM" src="https://user-images.githubusercontent.com/69278312/208109034-e5aacc4e-89f7-4359-8f15-a6cb9a80f7dd.png">
        
 -> Run a container from your own image to ping Docker’s website every five seconds:
         
