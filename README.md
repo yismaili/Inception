@@ -83,9 +83,6 @@ packaged to run in Docker and has been published on a public site that anyone ca
         
         docker container run --detach --publish 8088:80 diamol/ch02-hello-diamol-web
         
- ->. Run docker container ls and you’ll see that the new container has the status Up:
-        
-         docker container ls
     --detach—Starts the container in the background and shows the container ID 
     --publish—Publishes a port from the container to the computer 
         
@@ -99,7 +96,10 @@ packaged to run in Docker and has been published on a public site that anyone ca
    When you’re done working with a container, you can remove it with docker container rm and the container ID, using the --force flag to force removal if the container is still running.
                 
         docker container rm --force $(docker container ls --all --quiet)
- 
+->. The cleanup commands
+        
+        docker container rm -f $(docker container ls -aq)
+        
 4 - how Docker runs containers   
         
  <img width="532" alt="Screen Shot 2022-12-13 at 4 54 59 PM" src="https://user-images.githubusercontent.com/69278312/207381504-91619e31-1a87-4e25-b58a-b016d9a29df9.png">
@@ -199,8 +199,9 @@ Make a change to the app.js file in the ch03-web-ping direc- tory. It doesn’t 
         
         docker image build -t web-ping:v2 .
      
+->. the cleanup commands
 
 
-
+       docker image rm -f $(docker image ls -f reference='diamol/*' -q)
 
 
