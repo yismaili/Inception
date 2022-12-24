@@ -1,0 +1,29 @@
+# i am trying to create the first docker-compose 
+version: "3" 
+services: 
+  mysql_database: 
+    image: mysql 
+    restart: always 
+    environment: 
+      MYSQL_ROOT_PASSWORD: 1234 
+      MYSQL_DATABASE: wq_db 
+      MYSQL_USER: wq_user 
+      MYSQL_PASSWORD: 1234 
+    # volumes: 
+    #   - mysql: /var/lib/mysql 
+  wordpress: 
+    depends_on: 
+      - mysql_database 
+    image: wordpress:latest 
+    restart: always 
+    ports: 
+      - "8000:80" 
+    environment: 
+      WORDPRESS_DB_HOST: mysql_database:3306 
+      WORDPRESS_DB_USER: wq_user 
+      WORDPRESS_DB_PASSWORD: 1234 
+      WORDPRESS_DB_NAME: wq_db 
+    # volumes: 
+    #   ["./:/var/www/html"]
+# volumes: 
+#   mysql:{}
