@@ -189,5 +189,20 @@ Make a change to the app.js file in the ch03-web-ping direc- tory. It doesn’t 
 ->. the cleanup commands
 
        docker image rm -f $(docker image ls -f reference='diamol/*' -q)
+<img width="896" alt="Screen Shot 2022-12-21 at 7 11 19 PM" src="https://user-images.githubusercontent.com/69278312/209433218-e0199c6b-f440-401d-b85f-93cd05c61544.png">
+
+<img width="1271" alt="Screen Shot 2022-12-21 at 7 13 17 PM" src="https://user-images.githubusercontent.com/69278312/209433223-62cb1dd0-c594-4bc5-8cde-9b73abfc167d.png">
+<img width="1236" alt="Screen Shot 2022-12-21 at 7 15 22 PM" src="https://user-images.githubusercontent.com/69278312/209433225-9d405c07-1433-4d01-ac23-9beb8a3156a5.png">
+<img width="1277" alt="Screen Shot 2022-12-21 at 7 17 57 PM" src="https://user-images.githubusercontent.com/69278312/209433240-d5af1ffb-5142-4083-9834-a90b77123093.png">
 
 
+<img width="611" alt="Screen Shot 2022-12-21 at 7 27 57 PM" src="https://user-images.githubusercontent.com/69278312/209433249-13c80deb-7cd7-4a25-8b67-12e0dfb7fc2e.png">
+<img width="1294" alt="Screen Shot 2022-12-21 at 7 28 24 PM" src="https://user-images.githubusercontent.com/69278312/209433250-354744d3-dd1d-41b6-a4e6-69d8a3bcd9dd.png">
+
+<img width="1275" alt="Screen Shot 2022-12-21 at 7 29 45 PM" src="https://user-images.githubusercontent.com/69278312/209433252-2453a41b-ea84-43da-aab1-71bfccf00b16.png">
+<img width="272" alt="Screen Shot 2022-12-21 at 4 34 35 PM" src="https://user-images.githubusercontent.com/69278312/209433263-d1cf9e34-814f-4c1b-9b78-8f13ca1215d5.png">
+<img width="1243" alt="Screen Shot 2022-12-21 at 4 34 42 PM" src="https://user-images.githubusercontent.com/69278312/209433266-873940c6-2a59-479a-87aa-240ca03e4e8e.png">
+
+<img width="1528" alt="Screen Shot 2022-12-22 at 3 54 15 PM" src="https://user-images.githubusercontent.com/69278312/209433258-38822b20-9ba1-4373-a828-8632f612a7d1.png">
+
+<img width="1296" alt="Screen Shot 2022-12-21 at 7 10 31 PM" src="https://user-images.githubusercontent.com/69278312/209433268-cd05f4b1-d723-4a5d-ae4d-28c9ba4ef5b2.png">
