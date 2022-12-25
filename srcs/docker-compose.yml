@@ -5,26 +5,26 @@ version: "3"
 volumes:
   mr_db:
     driver: local
-    name: mr_db
+    # name: mr_db
     driver_opts:
       type: none
       o: bind
-      device: /home/data/mariadb
+      device: ./mariadb
   wrdprs:
     driver: local
-    name: wrdprs
+    # name: wrdprs
     driver_opts:
       type: none
       o: bind
-      device: /home/data/wordpress
+      device: ./wordpress
 # networks of drivers
 
-  networks:
-    app-nwrk:
-      name: app-nwrk
-      driver: bridge
-      driver_opts:
-        type: none
+networks:
+  appnwrk:
+    # name: appnwrk
+    driver: bridge
+      # driver_opts:
+      #   type: none
 # run containers 
 services: 
   mariadb:
@@ -34,7 +34,7 @@ services:
       volumes:
         - mr_db:/var/lib/mysql
       networks:
-        - app-nwrk
+        - appnwrk
   wordpress:
       container_name: wordpress
       build: ./requirements/wordpress
@@ -42,7 +42,7 @@ services:
       volumes:
         - wrdprs:/var/www/html
       networks:
-        - app-nwrk
+        - appnwrk
   nginx:
       container_name: nginx
       build: ./requirements/nginx
@@ -52,5 +52,5 @@ services:
       volumes:
         - wrdprs:/var/www/html
       networks:
-        - app-nwrk
+        - appnwrk
     
