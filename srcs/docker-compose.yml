@@ -1,29 +1,56 @@
-# i am trying to create the first docker-compose 
+
 version: "3" 
+# volumes of drivers 
+
+volumes:
+  mr_db:
+    driver: local
+    name: mr_db
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/data/mariadb
+  wrdprs:
+    driver: local
+    name: wrdprs
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/data/wordpress
+# networks of drivers
+
+  networks:
+    app-nwrk:
+      name: app-nwrk
+      driver: bridge
+      driver_opts:
+        type: none
+# run containers 
 services: 
-  mysql_database: 
-    image: mysql 
-    restart: always 
-    environment: 
-      MYSQL_ROOT_PASSWORD: 1234 
-      MYSQL_DATABASE: wq_db 
-      MYSQL_USER: wq_user 
-      MYSQL_PASSWORD: 1234 
-    # volumes: 
-    #   - mysql: /var/lib/mysql 
-  wordpress: 
-    depends_on: 
-      - mysql_database 
-    image: wordpress:latest 
-    restart: always 
-    ports: 
-      - "8000:80" 
-    environment: 
-      WORDPRESS_DB_HOST: mysql_database:3306 
-      WORDPRESS_DB_USER: wq_user 
-      WORDPRESS_DB_PASSWORD: 1234 
-      WORDPRESS_DB_NAME: wq_db 
-    # volumes: 
-    #   ["./:/var/www/html"]
-# volumes: 
-#   mysql:{}
+  mariadb:
+      container_name: mariadb
+      build: ./requirements/mariadb
+      restart: always
+      volumes:
+        - mr_db:/var/lib/mysql
+      networks:
+        - app-nwrk
+  wordpress:
+      container_name: wordpress
+      build: ./requirements/wordpress
+      restart: always
+      volumes:
+        - wrdprs:/var/www/html
+      networks:
+        - app-nwrk
+  nginx:
+      container_name: nginx
+      build: ./requirements/nginx
+      depends_on:
+        - wordpress
+      restart: always
+      volumes:
+        - wrdprs:/var/www/html
+      networks:
+        - app-nwrk
+    

@@ -1,17 +1,17 @@
-FROM php:7.4-apache
 
-COPY src/ /var/www/html/
+FROM debian:buster
 
-RUN apt-get update && apt-get install -y \
-    libfreetype6-dev \
-    libjpeg62-turbo-dev \
-    libpng-dev \
-    && docker-php-ext-install -j$(nproc) iconv \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd
-
-RUN a2enmod rewrite
+RUN apt update
+RUN apt -y install php7.3 php-mysqli php-fpm wget sendmail
 
 EXPOSE 80
 
-CMD ["apache2-foreground"]
+COPY ./tools /var/www/
+
+RUN chmod +x /var/www/wordpress.sh
+
+ENTRYPOINT [ "/var/www/wordpress.sh" ]
+
+CMD ["/usr/sbin/php-fpm7.3", "--nodaemonize"]
+
+
