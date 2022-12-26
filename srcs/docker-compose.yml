@@ -2,21 +2,19 @@
 version: "3" 
 # volumes of drivers 
 
-volumes:
-  mr_db:
-    driver: local
-    # name: mr_db
-    driver_opts:
-      type: none
-      o: bind
-      device: ./mariadb
-  wrdprs:
-    driver: local
-    # name: wrdprs
-    driver_opts:
-      type: none
-      o: bind
-      device: ./wordpress
+# volumes:
+#   mr_db:
+#     driver: local
+#     # name: mr_db
+#     driver_opts:
+#       type: none
+#       device: ./mariadb
+#   wrdprs:
+#     driver: local
+#     # name: wrdprs
+#     driver_opts:
+#       type: none
+#       device: ./wordpress
 # networks of drivers
 
 networks:
@@ -31,16 +29,16 @@ services:
       container_name: mariadb
       build: ./requirements/mariadb
       restart: always
-      volumes:
-        - mr_db:/var/lib/mysql
+      # volumes:
+      #   - mr_db:/var/lib/mysql
       networks:
         - appnwrk
   wordpress:
       container_name: wordpress
       build: ./requirements/wordpress
       restart: always
-      volumes:
-        - wrdprs:/var/www/html
+      # volumes:
+      #   - wrdprs:/var/www/html
       networks:
         - appnwrk
   nginx:
@@ -49,8 +47,8 @@ services:
       depends_on:
         - wordpress
       restart: always
-      volumes:
-        - wrdprs:/var/www/html
+      # volumes:
+      #   - wrdprs:/var/www/html
       networks:
         - appnwrk
     
