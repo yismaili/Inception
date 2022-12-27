@@ -4,11 +4,12 @@ FROM debian:buster
 RUN apt update
 RUN apt -y install php7.3 php-mysqli php-fpm wget sendmail
 
-EXPOSE 80
 
 COPY ./tools /var/www/
 
 RUN chmod +x /var/www/wordpress.sh
+
+EXPOSE 8080
 
 ENTRYPOINT [ "/var/www/wordpress.sh" ]
 
