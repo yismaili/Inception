@@ -1,14 +1,8 @@
 FROM debian
 
 RUN apt update
-RUN apt install apt-utils
 
-RUN apt -yq install nginx openssl
+RUN apt  install -y nginx openssl  &&  openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /etc/ssl/private/nginx.key -out /etc/ssl/certs/nginx.crt -subj "/C=MO/ST=khouribga/L=khouribga/O=wordpress/CN=yismaili.42.fr"
+COPY ./conf/default /etc/nginx/sites-enabled/default
+CMD ["nginx", "-g", "daemon off;"]
 
-EXPOSE 443
-
-COPY ./tools/nginx_ssl.sh/ var/www
-RUN chmod +x /var/www/nginx_ssl.sh
-
-ENTRYPOINT [ "var/www/nginx_ssl.sh"]
-CMD ["/usr/local/bin/ssl-setup.sh", "nginx", "-g", "daemon off;"]
