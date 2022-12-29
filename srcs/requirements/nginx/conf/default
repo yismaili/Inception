@@ -1,20 +1,37 @@
 server {
-    #specify the IP address and port that the web server should listen on for incoming traffic
+        #specify the IP address and port that the web server should listen on for incoming traffic
     listen [::]:443 ssl; # IPv6 address
     listen 443 ssl;
-    # enable the TLSv1.2 protocol. TLS (Transport Layer Security)depending on your security requirements 
+        # enable the TLSv1.2 protocol. TLS (Transport Layer Security)depending on your security requirements 
     ssl_protocols TLSv1.2;
-    # specify the locations of the SSL certificate and private key files
+        # specify the locations of the SSL certificate and private key files
     ssl_certificate /etc/ssl/certs/nginx.crt;
     ssl_certificate_key /etc/ssl/private/nginx.key;
-    # specify the domain name
+        # specify the domain name
     server_name www.yismaili.com;
-    # the root directory for a website
+        # the root directory for a website
     root /var/www/html;
-    # specify the names of the files that should be used as the default index file for a website
+        # specify the names of the files that should be used as the default index file for a website
     index index.php index.html index.htm index.nginx-debian.html;
-    # handle requests for specific URI paths ç to serve the requested URI, and if it does not exist
+        # handle requests for specific URI paths ç to serve the requested URI, and if it does not exist
     location / {
-        try_files $uri $uri/ =404;
+        try_files $uri $uri/ /index.php$is_args$args;
+    }
+     location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            # Nginx to pass the request to a FastCGI server listening on wordpress:9000. This could be a server running on the local machine
+        fastcgi_pass wordpress:9000; 
+            # specify the default script that should be executed when a directory is requested
+        fastcgi_index index.php;
+            # include the fastcgi_params configuration file settings that are shared across multiple location blocks or server blocks.
+        include fastcgi_params;
+            # sset a FastCGI parameter, which is a variable that is passed to the FastCGI server along with the request. FastCGI parameters are used to set various options and settings for the FastCGI server and the request.
+                # The SCRIPT_FILENAME parameter is typically used by the FastCGI server to locate and execute the script that is being requested
+                # The $document_root variable specifies the root directory of the current server block
+                # the $fastcgi_script_name variable specifies the script name portion of the fastcgi_split_path_info expression. Together, these variables specify the full path of the script that is being requested
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            # The $fastcgi_path_info variable specifies the path info portion of the fastcgi_split_path_info expression -  sets the PATH_INFO FastCGI parameter to the value of $fastcgi_path_info.
+        fastcgi_param PATH_INFO $fastcgi_path_info;
     }
 }
