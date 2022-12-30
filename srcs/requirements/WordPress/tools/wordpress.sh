@@ -1,9 +1,5 @@
 #!/bin/bash
-# 	mkdir -p /var/www/html
-# 	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar;
-# 	chmod +x wp-cli.phar; 
-# 	mv wp-cli.phar /usr/local/bin/wp;
-# exec "$@"
+
 	chown -R www-data:www-data /var/www/*;
 	chown -R 755 /var/www/*;
 	mkdir -p /run/php/;
@@ -20,5 +16,8 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 	wp user create --allow-root 'yismaili' 'yismaili@42.fr' --user_pass='1234';
 	echo "Wordpress: set up!"
 fi
-
+ sed -i "s/define( 'DB_NAME', 'database_name_here' );/define('DB_NAME', 'wp_db');/g" "/var/www/html/wp-config-sample.php"
+ sed -i "s/define( 'DB_USER', 'username_here' );/define('DB_USER', 'yismaili');/g" "/var/www/html/wp-config-sample.php"
+ sed -i "s/define( 'DB_PASSWORD', 'password_here' );/define('DB_PASSWORD', '1234');/g" "/var/www/html/wp-config-sample.php"
+ sed -i "s/define( 'DB_HOST', 'localhost' );/define('DB_HOST', 'mariadb');/g" "/var/www/html/wp-config-sample.php"
 exec "$@"
