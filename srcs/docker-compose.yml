@@ -2,21 +2,21 @@
 version: "3" 
 # volumes of drivers 
 
-# volumes:
-#   db:
-#     driver: local
-#     name: db
-#     driver_opts:
-#       type: none
-#       o: bind
-#       device: /Users/yismaili/Desktop/Inception/srcs/data/mariadb
-#   wp:
-#     driver: local
-#     name: wp
-#     driver_opts:
-#       type: none
-#       o: bind
-#       device: /Users/yismaili/Desktop/Inception/srcs/data/wordpress
+volumes:
+  db:
+    driver: local
+    # name: db
+    driver_opts:
+      type: none
+      o: bind
+      device: /Users/yismaili/Desktop/Inception/srcs/data/mariadb
+  wp:
+    driver: local
+    # name: wp
+    driver_opts:
+      type: none
+      o: bind
+      device: /Users/yismaili/Desktop/Inception/srcs/data/wordpress
 # networks of drivers
 
 networks:
@@ -29,22 +29,22 @@ networks:
 services: 
   mariadb:
       container_name: mariadb
-      # env_file:
-      #   - .env
+      env_file:
+        - .env
       build: ./requirements/mariadb
       restart: always
-      # volumes:
-      #   - db:/var/lib/mysql
+      volumes:
+        - db:/var/lib/mysql
       networks:
         - appnwrk
   wordpress:
       container_name: wordpress
-      # env_file:
-      #   - .env
+      env_file:
+        - .env
       build: ./requirements/wordpress
       restart: always
-      # volumes:
-      #   - wp:/var/www/html
+      volumes:
+        - wp:/var/www/html
       networks:
         - appnwrk
   nginx:
@@ -53,8 +53,8 @@ services:
       depends_on:
         - wordpress
       restart: always
-      # volumes:
-      #   - wp:/var/www/html
+      volumes:
+        - wp:/var/www/html
       networks:
         - appnwrk
     

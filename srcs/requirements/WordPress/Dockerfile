@@ -7,8 +7,6 @@ RUN sed -i "s/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/" "/etc/php/7.3
 
 # COPY ./conf/wp-config.php /var/www/
 COPY ./tools /var/www/
-RUN chmod +x /var/www/conf-db.sh
-RUN /var/www/conf-db.sh
 RUN chmod +x /var/www/wordpress.sh
 
 EXPOSE 9000
