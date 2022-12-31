@@ -23,8 +23,6 @@ networks:
   appnwrk:
     # name: appnwrk
     driver: bridge
-      # driver_opts:
-      #   type: none
 # run containers 
 services: 
   mariadb:
@@ -41,6 +39,8 @@ services:
       container_name: wordpress
       env_file:
         - .env
+      depends_on:
+        - mariadb
       build: ./requirements/wordpress
       restart: always
       volumes:
@@ -53,6 +53,8 @@ services:
       depends_on:
         - wordpress
       restart: always
+      ports: 
+       - 443:443
       volumes:
         - wp:/var/www/html
       networks:
