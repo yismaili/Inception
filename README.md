@@ -116,6 +116,28 @@ Docker networking is a passage through which all the isolated container communic
 
 A read-only template for creating containers. An image contains the installations of an application instance or an instance group with its software and dependencies, and the process to run when the container is launched. 
 
+- list the images on your system:
+
+            docker image ls
+- docker image build -t my-image
+
+            docker image build -t my-image .
+- pull an image from a registry:
+
+            docker image pull ubuntu
+- push an image to a registry:
+
+            docker image push my-image
+- remove an image:
+
+            docker image rm -f my-image
+- inspect an image:
+
+            docker image inspect my-image
+- docker image inspect my-image
+
+            docker image inspect my-image
+
 # DockerFile
 
 Every Docker container starts with a simple text file containing instructions for how to build the Docker container image. DockerFile automates the process of Docker image creation. It’s essentially a list of command-line interface (CLI) instructions that Docker Engine will run in order to assemble the image. The list of Docker commands is huge, but standardized: Docker operations work the same regardless of contents, infrastructure, or other environment variables.
