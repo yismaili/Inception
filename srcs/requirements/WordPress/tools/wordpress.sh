@@ -17,7 +17,7 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 	sed -i "s/password_here/1234/g" "/var/www/html/wp-config-sample.php"
 	sed -i "s/localhost/mariadb/g" "/var/www/html/wp-config-sample.php"
  	cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php;
-	wp core install --allow-root --url='yismaili@42.fr' --title='wordpress' --admin_user='error' --admin_password='error1234' --admin_email='error1337@42.fr'
+	wp core install --allow-root --url=${URL} --title=${TITLE} --admin_user=${ADMIN_USER} --admin_password=${ADMIN_PSSWRD} --admin_email=${ADMIN_EMAIL}
 	wp user create --allow-root 'yismaili' 'yismaili@42.fr' --user_pass= '1234';
 	echo "Wordpress: set up!"
 fi
