@@ -13,6 +13,9 @@ Docker is an open source platform that enables developers to build, deploy, run,
 - the version of Docker:
 
         docker --version
+- lists the running containers on your system:
+
+        docker ps
 
 # Docker containers
 
@@ -158,15 +161,15 @@ list of common instructions that you can use in a Dockerfile:
             
   - 'FROM': Specifies the base image to use for the container.
   - 'RUN': Executes a command and creates a new layer on top of the base image.
-  - CMD: Specifies the default command to run when the container starts.
-  - ENTRYPOINT: Specifies the default command to run when the container starts, with arguments passed as parameters.
-  - ENV: Sets an environment variable in the container.
-  - EXPOSE: Exposes a port or a range of ports for the container.
-  - WORKDIR: Sets the working directory for the commands in the container.
-  - COPY: Copies files or directories from the host to the container.
-  - ADD: Copies files or directories from the host to the container and can automatically decompress compressed files.
-  - USER: Sets the default user for the container.
-  - ARG: Defines a build-time variable for the image.
+  - 'CMD': Specifies the default command to run when the container starts.
+  - 'ENTRYPOINT': Specifies the default command to run when the container starts, with arguments passed as parameters.
+  - 'ENV': Sets an environment variable in the container.
+  - 'EXPOSE': Exposes a port or a range of ports for the container.
+  - 'WORKDIR': Sets the working directory for the commands in the container.
+  - 'COPY': Copies files or directories from the host to the container.
+  - 'ADD': Copies files or directories from the host to the container and can automatically decompress compressed files.
+  - 'USER': Sets the default user for the container.
+  - 'ARG': Defines a build-time variable for the image.
 
 # Docker client
 
@@ -180,3 +183,30 @@ Repositories of images for users to upload or download. Registries can be public
 # Docker Architecture
 
 <img width="616" alt="Screen Shot 2023-01-01 at 3 53 27 PM" src="https://user-images.githubusercontent.com/69278312/210174963-b3d94151-7871-4914-b9cf-15739f8c9ae3.png">
+
+# Docker Compose
+
+Docker Compose is a tool for defining and running multi-container Docker applications. It allows you to define the services that make up your application in a single file, and then start and stop the entire application with a single command.
+
+- example :
+
+            version: '3'
+            services:
+              web:
+                build: .
+                ports:
+                  - "8000:8000"
+                depends_on:
+                  - db
+              db:
+                image: postgres
+                environment:
+                  POSTGRES_USER: user
+                  POSTGRES_PASSWORD: password
+
+- start the services
+
+               docker-compose up
+- stop the services
+
+                docker-compose down
