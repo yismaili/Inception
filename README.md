@@ -6,7 +6,7 @@ This project aims to broaden your knowledge of system administration by using Do
 Docker is an open source platform that enables developers to build, deploy, run, update and manage containers—standardized, executable components that combine application source code with the operating system (OS) libraries and dependencies required to run that code in any environment
 # Docker containers
 
-A Docker container is the same idea as a physical container—think of it like a box with an application in it. Inside the box, the application seems to have a computer all to itself: it has its own machine name and IP address, and it also has its own disk drive.
+Created from an image and is the run time component of Docker. A container holds everything that is needed for an application instance or an instance group to run, including an operating system, user-added files, meta-data, and other dependencies.
 
 <img width="478" alt="Screen Shot 2022-12-13 at 3 38 05 PM" src="https://user-images.githubusercontent.com/69278312/207362543-fdf63f7e-802d-412f-83d0-0f6a5458db22.png">
 
@@ -16,11 +16,21 @@ The application inside the box can’t see anything outside the box, but the box
 
 # Docker images
 
-Docker images contain executable application source code as well as all the tools, libraries, and dependencies that the application code needs to run as a container. When you run the Docker image, it becomes one instance (or multiple instances) of the container. 
+A read-only template for creating containers. An image contains the installations of an application instance or an instance group with its software and dependencies, and the process to run when the container is launched. 
 
 # DockerFile
 
 Every Docker container starts with a simple text file containing instructions for how to build the Docker container image. DockerFile automates the process of Docker image creation. It’s essentially a list of command-line interface (CLI) instructions that Docker Engine will run in order to assemble the image. The list of Docker commands is huge, but standardized: Docker operations work the same regardless of contents, infrastructure, or other environment variables.
+
+# Docker client
+
+Primary user interface for the Docker daemon. It accepts commands from the user and communicates with the Docker daemon. The Docker daemon and client can run on the same or separate systems. The Docker client and daemon communicate via sockets or through RESTful APIs.
+
+# Docker daemon
+
+Builds, runs, and manages Docker containers on a host machine.
+# Docker registries
+Repositories of images for users to upload or download. Registries can be public or private. The public Docker registry is called the Docker Hub.
 
 
 # Docker and running Hello World
