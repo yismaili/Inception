@@ -140,7 +140,33 @@ A read-only template for creating containers. An image contains the installation
 
 # DockerFile
 
-Every Docker container starts with a simple text file containing instructions for how to build the Docker container image. DockerFile automates the process of Docker image creation. It’s essentially a list of command-line interface (CLI) instructions that Docker Engine will run in order to assemble the image. The list of Docker commands is huge, but standardized: Docker operations work the same regardless of contents, infrastructure, or other environment variables.
+Dockerfile is a text file that contains instructions for building a Docker image. It specifies the base image to use, the packages and dependencies to install, the files and directories to include, and any other configurations needed to create a container image.
+
+simple example:
+
+            FROM ubuntu:20.04
+
+            RUN apt-get update && apt-get install -y nginx
+
+            COPY index.html /var/www/html/
+
+            ENTRYPOINT ["nginx", "-g", "daemon off;"]
+ - To build an image from a Dockerfile:
+ 
+            docker image build -t my-image .
+list of common instructions that you can use in a Dockerfile:
+            
+  - 'FROM': Specifies the base image to use for the container.
+  - 'RUN': Executes a command and creates a new layer on top of the base image.
+  - CMD: Specifies the default command to run when the container starts.
+  - ENTRYPOINT: Specifies the default command to run when the container starts, with arguments passed as parameters.
+  - ENV: Sets an environment variable in the container.
+  - EXPOSE: Exposes a port or a range of ports for the container.
+  - WORKDIR: Sets the working directory for the commands in the container.
+  - COPY: Copies files or directories from the host to the container.
+  - ADD: Copies files or directories from the host to the container and can automatically decompress compressed files.
+  - USER: Sets the default user for the container.
+  - ARG: Defines a build-time variable for the image.
 
 # Docker client
 
