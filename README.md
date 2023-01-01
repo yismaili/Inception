@@ -47,11 +47,11 @@ After you run a docker image, it creates a docker container. All the application
         docker container inspect id
 - Restart one or more running containers:
 
-        $ docker container restart id or name
+        docker container restart id or name
  
 - docker container logs:
 
-        $ docker container logs id or name 
+        docker container logs id or name 
    
  # Volumes
  
