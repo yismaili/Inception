@@ -1,6 +1,8 @@
 
 build:
 	docker-compose -f ./srcs/docker-compose.yml build
+	mkdir srcs/data/mariadb
+	mkdir srcs/data/wordpress
 
 up:
 	docker-compose -f ./srcs/docker-compose.yml up -d
@@ -21,5 +23,6 @@ clean:
 	docker rmi -f $$(docker images -qa);\
 	docker volume rm $$(docker volume ls -q);\
 	docker network rm $$(docker network ls -q);\
-
+	rm -rf srcs/data/mariadb/ *\
+	rm -rf srcs/data/wordpress/ *\
 .PHONY: build up down restart clean	
