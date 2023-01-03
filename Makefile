@@ -1,8 +1,8 @@
 
 build:
 	docker-compose -f ./srcs/docker-compose.yml build
-	# mkdir srcs/data/mariadb
-	# mkdir srcs/data/wordpress
+	mkdir -p srcs/data/mariadb
+	mkdir -p srcs/data/wordpress
 
 up:
 	docker-compose -f ./srcs/docker-compose.yml up -d
