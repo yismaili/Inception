@@ -12,6 +12,8 @@ down:
 
 restart:
 	make down
+	make clean
+	make build
 	make up
 
 logs:	
