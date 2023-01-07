@@ -35,3 +35,16 @@ server {
         fastcgi_param PATH_INFO $fastcgi_path_info;
     }
 }
+# server {
+#     listen [::]:443 ssl;
+#     listen 443 ssl;
+#     ssl_protocols TLSv1.2;
+#     ssl_certificate /etc/ssl/certs/nginx.crt;
+#     ssl_certificate_key /etc/ssl/private/nginx.key;
+#     server_name bonusyismaili@42.fr;
+#     root /var/www/html/bnus;
+#     index.html
+#     location / {
+#         try_files $uri $uri/ /index.php$is_args$args;
+#     }
+# }
