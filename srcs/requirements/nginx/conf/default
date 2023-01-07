@@ -8,7 +8,7 @@ server {
     ssl_certificate /etc/ssl/certs/nginx.crt;
     ssl_certificate_key /etc/ssl/private/nginx.key;
         # specify the domain name
-    server_name www.yismaili.com;
+    server_name www.yismaili@42.fr;
         # the root directory for a website
     root /var/www/html;
         # specify the names of the files that should be used as the default index file for a website

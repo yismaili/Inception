@@ -59,4 +59,11 @@ services:
         - wp:/var/www/html
       networks:
         - appnwrk
+  adminer:
+    build: ./bonus/Adminer
+    restart: always
+    ports:
+      - "8282:8282"
+    networks:
+      - appnwrk
     
