@@ -3,7 +3,7 @@ FROM debian:buster
 
 RUN apt update
 RUN apt -y install php7.3 php-mysqli php-fpm wget sendmail
-COPY ./tools /var/www/
+COPY ./tools/wordpress.sh /var/www/
 RUN chmod +x /var/www/wordpress.sh
 
 EXPOSE 9000

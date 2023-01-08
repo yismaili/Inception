@@ -16,15 +16,16 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 	sed -i "s/localhost/${DB_HOST}/g" "/var/www/html/wp-config-sample.php"
 	# echo "define('WP_REDIS_CLIENT', 'predis');" >> "/var/www/html/wp-config-sample.php"
 	# echo "define('WP_REDIS_SCHEME', 'tcp');" >> "/var/www/html/wp-config-sample.php"
-	# echo "define('WP_REDIS_HOST', '127.0.0.1');" >> "/var/www/html/wp-config-sample.php"
-	# echo "define('WP_REDIS_PORT', '6379');" >> "/var/www/html/wp-config-sample.php"
+	echo "define('WP_REDIS_HOST', 'redis');" >> "/var/www/html/wp-config-sample.php"
+	echo "define('WP_REDIS_PORT', '6379');" >> "/var/www/html/wp-config-sample.php"
+	echo "define('WP_CACHE', true);" >> "/var/www/html/wp-config-sample.php"
  	cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php;
 	# install WordPress using the specified options
 	wp core install --allow-root --url=$URL --title=$TITLE --admin_user=$ADMIN_USER --admin_password=$ADMIN_PSSWRD --admin_email=$ADMIN_EMAIL
-
-    # wp plugin install  redis-cache --activate --path=/var/www/html --allow-root
-   	# wp redis enable --path=/var/www/html/ --allow-root
 	wp user create --allow-root ${DB_USER} ${USER_EMAIL} --user_pass= /${DB_PSSWRD}; # create a new user for your WordPress site
+
+    wp plugin install  redis-cache --activate --path=/var/www/html --allow-root
+   	wp redis enable --path=/var/www/html/ --allow-root
 	echo "Wordpress: set up!"
 fi
 exec "$@"
