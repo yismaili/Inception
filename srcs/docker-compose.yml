@@ -43,6 +43,8 @@ services:
         - mariadb
       build: ./requirements/wordpress
       restart: always
+      ports:
+        - 9000:9000
       volumes:
         - wp:/var/www/html
       networks:
@@ -56,7 +58,6 @@ services:
       ports: 
        - 443:443
       volumes:
-        - wp:/var/www/html/wibsete
         - wp:/var/www/html
       networks:
         - appnwrk
@@ -67,14 +68,12 @@ services:
       - "8282:8282"
     networks:
       - appnwrk
-  # wibsete:
-  #   depends_on:
-  #     - nginx
-  #   build: ./bonus/website
-  #   volumes:
-  #     - wp:/var/www/html/wibsete
-  #   networks:
-  #     - appnwrk
+  wibsete:
+    build: ./bonus/website
+    ports:
+      - 80:80
+    networks:
+      - appnwrk
   redis:
     build: ./bonus/redis
     ports: 
