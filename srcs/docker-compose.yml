@@ -29,6 +29,8 @@ services:
       container_name: mariadb
       env_file:
         - .env
+      ports:
+        - 3360:3360
       build: ./requirements/mariadb
       restart: always
       volumes:
