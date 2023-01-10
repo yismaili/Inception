@@ -2,7 +2,7 @@
 	mkdir -p /run/php/;
 	touch /run/php/php7.3-fpm.pid; #Store PID files for PHP processes managed by the PHP-FPM
 	sed -i "s/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/" "/etc/php/7.3/fpm/pool.d/www.conf"
-# if [ ! -f /var/www/html/wp-config.php ]; then
+ if [ ! -f /var/www/html/wp-config.php ]; then
 	mkdir -p /var/www/html
 	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar; #download wp-cli (WordPress Command Line Interface pour managing your site)
 	chmod +x wp-cli.phar; 
@@ -14,18 +14,16 @@
 	sed -i "s/username_here/${DB_USER}/g" "/var/www/html/wp-config-sample.php"
 	sed -i "s/password_here/${DB_PSSWRD}/g" "/var/www/html/wp-config-sample.php"
 	sed -i "s/localhost/${DB_HOST}/g" "/var/www/html/wp-config-sample.php"
-	
 	cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php;
-	
 	wp config set WP_REDIS_HOST redis --allow-root
 	wp config set WP_REDIS_PORT 6379 --allow-root
 	wp config set WP_CACHE true --allow-root
 	# install WordPress using the specified options
 	wp core install --allow-root --url=$URL --title=$TITLE --admin_user=$ADMIN_USER --admin_password=$ADMIN_PSSWRD --admin_email=$ADMIN_EMAIL
-	wp user create --allow-root ${DB_USER} ${USER_EMAIL} --user_pass= /${DB_PSSWRD}; # create a new user for your WordPress site
+	wp user create --allow-root ${DB_USER} ${USER_EMAIL} --user_pass= ${DB_PSSWRD}; # create a new user for your WordPress site
 
     wp plugin install redis-cache --activate --allow-root
    	wp redis enable --allow-root
 	echo "Wordpress: set up!"
-# fi
+ fi
 exec "$@"

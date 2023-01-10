@@ -35,15 +35,3 @@ server {
         fastcgi_param PATH_INFO $fastcgi_path_info;
     }
 }
-# server {
-#         listen 80;
-#         listen [::]:80;
-#         root /var/www/html/website;
-#         index index.html index.htm;
-#         server_name/websiteyismaili@42.fr;
-
-#    location / {
-#        try_files $uri $uri/ =404;
-#    }
-
-# }
