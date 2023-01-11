@@ -82,3 +82,12 @@ services:
        - 6379:6379
     networks:
       - appnwrk
+  ftp:
+    build: ./bonus/ftp_server
+    ports: 
+       - 20:20
+       - 21:21
+    networks:
+      - appnwrk
+    volumes:
+        - wp:/home/yismaili
