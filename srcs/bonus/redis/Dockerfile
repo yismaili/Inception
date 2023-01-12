@@ -1,10 +1,8 @@
 FROM debian:buster
 
 RUN  apt update && apt install -y redis-server && apt install -y php-redis
+COPY ./tool /var/www/
+RUN chmod +x /var/www/conf.sh
 
-RUN sed -i 's/bind 127.0.0.1 ::1/bind 0.0.0.0 ::1/g' /etc/redis/redis.conf
-
-RUN echo "maxmemory 256mb" >> /etc/redis/redis.conf
-RUN echo "maxmemory-policy allkeys-lru" >> etc/redis/redis.conf
-
+ENTRYPOINT [ "/var/www/conf.sh" ]
 CMD ["redis-server", "--protected-mode", "no"]

@@ -65,6 +65,8 @@ services:
         - appnwrk
   adminer:
     build: ./bonus/Adminer
+    depends_on:
+        - wordpress
     restart: always
     ports:
       - "8282:8282"
@@ -78,16 +80,20 @@ services:
       - appnwrk
   redis:
     build: ./bonus/redis
+    depends_on:
+        - wordpress
     ports: 
        - 6379:6379
     networks:
       - appnwrk
   ftp:
     build: ./bonus/ftp_server
+    depends_on:
+        - wordpress
     ports: 
        - 20:20
        - 21:21
     networks:
       - appnwrk
     volumes:
-        - wp:/home/yismaili
+        - wp:/home/yismaili/ftp
