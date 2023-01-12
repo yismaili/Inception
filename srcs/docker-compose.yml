@@ -64,6 +64,7 @@ services:
       networks:
         - appnwrk
   adminer:
+    container_name: adminer
     build: ./bonus/Adminer
     depends_on:
         - wordpress
@@ -73,12 +74,14 @@ services:
     networks:
       - appnwrk
   wibsete:
+    container_name: wibset
     build: ./bonus/website
     ports:
       - 80:80
     networks:
       - appnwrk
   redis:
+    container_name: redis
     build: ./bonus/redis
     depends_on:
         - wordpress
@@ -87,6 +90,7 @@ services:
     networks:
       - appnwrk
   ftp:
+    container_name: ftp
     build: ./bonus/ftp_server
     depends_on:
         - wordpress
