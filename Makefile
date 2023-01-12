@@ -5,7 +5,7 @@ build:
 	mkdir -p srcs/data/wordpress
 
 up:
-	docker-compose -f ./srcs/docker-compose.yml up -d
+	docker-compose -f ./srcs/docker-compose.yml up
 
 down:
 	docker-compose -f ./srcs/docker-compose.yml down

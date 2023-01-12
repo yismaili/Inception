@@ -32,7 +32,7 @@ services:
       ports:
         - 3360:3360
       build: ./requirements/mariadb
-      restart: always
+      restart: on-failure
       volumes:
         - db:/var/lib/mysql
       networks:
@@ -44,7 +44,7 @@ services:
       depends_on:
         - mariadb
       build: ./requirements/wordpress
-      restart: always
+      restart: on-failure
       ports:
         - 9000:9000
       volumes:
@@ -56,7 +56,7 @@ services:
       build: ./requirements/nginx
       depends_on:
         - wordpress
-      restart: always
+      restart: on-failure
       ports: 
        - 443:443
       volumes:
@@ -67,7 +67,7 @@ services:
     build: ./bonus/Adminer
     depends_on:
         - wordpress
-    restart: always
+    restart: on-failure
     ports:
       - "8282:8282"
     networks:
@@ -90,10 +90,14 @@ services:
     build: ./bonus/ftp_server
     depends_on:
         - wordpress
-    ports: 
-       - 20:20
-       - 21:21
+    ports:
+      - "40000-40006:40000-40006"
+      - "21:21"
+      - "20:20"
     networks:
       - appnwrk
+    env_file:
+      - .env
     volumes:
-        - wp:/home/yismaili/ftp
+      - wp:/home/yismail/ftp
+    restart: on-failure
