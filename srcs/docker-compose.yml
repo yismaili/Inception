@@ -7,18 +7,15 @@ volumes:
     driver: local
     # name: db
     driver_opts:
-      type: none
       o: bind
       device: /Users/yismaili/Desktop/Inception/srcs/data/mariadb
   wp:
     driver: local
     # name: wp
     driver_opts:
-      type: none
       o: bind
       device: /Users/yismaili/Desktop/Inception/srcs/data/wordpress
 # networks of drivers
-
 networks:
   appnwrk:
     # name: appnwrk
@@ -109,12 +106,12 @@ services:
     container_name: cadvisor
     build: ./bonus/cAdvisor
     volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:rw
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
+      - /:/rootfs:ro # access and collect resource usage data from the host's filesystem
+      - /var/run:/var/run:rw #allows CAdvisor to access and collect resource usage data from the host's running processes.
+      - /sys:/sys:ro #allows CAdvisor to access and collect resource usage data from the host's system information
+      - /var/lib/docker/:/var/lib/docker:ro # allows CAdvisor to access and collect resource usage data from the host's running Docker containers
     ports:
       - "8080:8080"
-    # networks:
-    #   - appnwrk
+    networks:
+      - appnwrk
     restart: on-failure
