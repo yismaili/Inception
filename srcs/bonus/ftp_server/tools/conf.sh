@@ -7,18 +7,11 @@ adduser --gecos "" $ft_usr
 echo "$ft_usr:$ft_pass" | chpasswd
 # creates any missing parent directories in the path
 mkdir -p /home/$ft_usr/ftp/
+# changes the ownership of this the directory and the group
 chown -R $ft_usr:$ft_usr /home/$ft_usr/ftp
-# chown nobody:nogroup /home/$ft_usr/ftp
-# removes write permissions for all users 
 mkdir -p /var/run/vsftpd/empty
 chmod -R 755 /var/run/vsftpd/empty
-# changes the ownership of this the directory and the group
-# add the user in the file (list of users)
 # fi 
-cp /etc/vsftpd.conf /etc/vsftpd.conf.orig
-#he vsftpd server to listen for incoming connections on all interfaces and the default port 21.
-# the vsftpd server to not listen for incoming connections on IPV6 addresses the FTP server will only accept 
-# connections made over IPV4 addresses and will not bind to any IPV6 addresses.
 # not allow anonymous connect to the server, the server will only allow connections from users with a valid account on the system.
 echo "anonymous_enable=NO" >> /etc/vsftpd.conf  
 #the vsftpd will allow users with accounts on the system to connect and authenticate using their username and password.
@@ -42,6 +35,7 @@ echo "userlist_deny=NO" >> /etc/vsftpd.conf
 #set the local root directory for users when they first log in and This is useful 
 #if you want to limit the user's access to specific parts of the file system or for security reasons
 echo "local_root=/home/$ft_usr/ftp" >> /etc/vsftpd.conf
+# add the user in the file (list of users)
 echo "$ft_usr" | tee -a /etc/vsftpd.userlist
 service vsftpd stop;
 exec "$@"

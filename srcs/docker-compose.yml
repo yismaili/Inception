@@ -105,3 +105,16 @@ services:
     volumes:
       - wp:/home/yismail/ftp
     restart: on-failure
+  cadvisor:
+    container_name: cadvisor
+    build: ./bonus/cAdvisor
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    ports:
+      - "8080:8080"
+    networks:
+      - appnwrk
+    restart: on-failure
