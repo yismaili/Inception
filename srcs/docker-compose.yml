@@ -51,6 +51,8 @@ services:
         - appnwrk
   nginx:
       container_name: nginx
+      env_file:
+        - .env
       build: ./requirements/nginx
       image: nginx:inceotion
       depends_on:
