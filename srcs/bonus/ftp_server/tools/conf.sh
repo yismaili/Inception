@@ -9,6 +9,7 @@ echo "$ft_usr:$ft_pass" | chpasswd
 mkdir -p /home/$ft_usr/ftp/
 # changes the ownership of this the directory and the group
 chown -R $ft_usr:$ft_usr /home/$ft_usr/ftp
+mkdir -p /home/vlm/ftp/
 mkdir -p /var/run/vsftpd/empty
 chmod -R 755 /var/run/vsftpd/empty
 # fi 
@@ -34,7 +35,7 @@ echo "user_sub_token=$ft_usr" >> /etc/vsftpd.conf
 echo "userlist_deny=NO" >> /etc/vsftpd.conf 
 #set the local root directory for users when they first log in and This is useful 
 #if you want to limit the user's access to specific parts of the file system or for security reasons
-echo "local_root=/home/$ft_usr/ftp" >> /etc/vsftpd.conf
+echo "local_root=/home/vlm/ftp" >> /etc/vsftpd.conf
 # add the user in the file (list of users)
 echo "$ft_usr" | tee -a /etc/vsftpd.userlist
 service vsftpd stop;

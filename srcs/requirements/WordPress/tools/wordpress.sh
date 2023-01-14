@@ -21,9 +21,8 @@
 	# install WordPress using the specified options
 	wp core install --allow-root --url=$URL --title=$TITLE --admin_user=$ADMIN_USER --admin_password=$ADMIN_PSSWRD --admin_email=$ADMIN_EMAIL
 	wp user create --allow-root ${DB_USER} ${USER_EMAIL} --user_pass=${DB_PSSWRD}; # create a new user for your WordPress site
-
-    wp plugin install redis-cache --activate --allow-root
-   	wp redis enable --allow-root
+    wp plugin install  --allow-root redis-cache --activate --allow-root
+   	wp redis  --allow-root enable
 	echo "Wordpress: set up!"
  fi
 exec "$@"

@@ -30,8 +30,8 @@ server {
                 # The SCRIPT_FILENAME parameter is typically used by the FastCGI server to locate and execute the script that is being requested
                 # The $document_root variable specifies the root directory of the current server block
                 # the $fastcgi_script_name variable specifies the script name portion of the fastcgi_split_path_info expression. Together, these variables specify the full path of the script that is being requested
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-            # The $fastcgi_path_info variable specifies the path info portion of the fastcgi_split_path_info expression -  sets the PATH_INFO FastCGI parameter to the value of $fastcgi_path_info.
-        fastcgi_param PATH_INFO $fastcgi_path_info;
+         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        #     # The $fastcgi_path_info variable specifies the path info portion of the fastcgi_split_path_info expression -  sets the PATH_INFO FastCGI parameter to the value of $fastcgi_path_info.
+         fastcgi_param PATH_INFO $fastcgi_path_info;
     }
 }

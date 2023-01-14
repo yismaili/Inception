@@ -1,7 +1,6 @@
 
 version: "3" 
 # volumes of drivers 
-
 volumes:
   db:
     driver: local
@@ -29,6 +28,7 @@ services:
       ports:
         - 3360:3360
       build: ./requirements/mariadb
+      image: mariadb:inceotion
       restart: on-failure
       volumes:
         - db:/var/lib/mysql
@@ -41,6 +41,7 @@ services:
       depends_on:
         - mariadb
       build: ./requirements/wordpress
+      image: wordpress:inceotion
       restart: on-failure
       ports:
         - 9000:9000
@@ -51,6 +52,7 @@ services:
   nginx:
       container_name: nginx
       build: ./requirements/nginx
+      image: nginx:inceotion
       depends_on:
         - wordpress
       restart: on-failure
@@ -63,6 +65,7 @@ services:
   adminer:
     container_name: adminer
     build: ./bonus/Adminer
+    image: adminer:inceotion
     depends_on:
         - wordpress
     restart: on-failure
@@ -73,6 +76,7 @@ services:
   wibsete:
     container_name: wibset
     build: ./bonus/website
+    image: wibset:inceotion
     ports:
       - 80:80
     networks:
@@ -80,15 +84,20 @@ services:
   redis:
     container_name: redis
     build: ./bonus/redis
+    image: redis:inceotion
     depends_on:
         - wordpress
+    sysctls:
+      - net.core.somaxconn=511
     ports: 
        - 6379:6379
     networks:
       - appnwrk
+    privileged: true
   ftp:
     container_name: ftp
     build: ./bonus/ftp_server
+    image: ftp:inceotion
     depends_on:
         - wordpress
     ports:
@@ -100,11 +109,12 @@ services:
     env_file:
       - .env
     volumes:
-      - wp:/home/yismail/ftp
+      - wp:/home/vlm/ftp
     restart: on-failure
   cadvisor:
     container_name: cadvisor
     build: ./bonus/cAdvisor
+    image: cadvisor:inceotion
     volumes:
       - /:/rootfs:ro # access and collect resource usage data from the host's filesystem
       - /var/run:/var/run:rw #allows CAdvisor to access and collect resource usage data from the host's running processes.
