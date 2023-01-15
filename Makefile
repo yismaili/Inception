@@ -1,14 +1,14 @@
 
 build:
-	docker-compose -f ./srcs/docker-compose.yml build
+	ocker-compose -f ${PWD}/srcs/docker-compose.yml build
 	mkdir -p srcs/data/mariadb
 	mkdir -p srcs/data/wordpress
 
 up:
-	docker-compose -f ./srcs/docker-compose.yml up 
+	docker-compose -f ${PWD}/srcs/docker-compose.yml up 
 
 down:
-	docker-compose -f ./srcs/docker-compose.yml down
+	docker-compose -f ${PWD}/srcs/docker-compose.yml down
 
 restart:
 	make down

@@ -1,6 +1,5 @@
 server {
         #specify the IP address and port that the web server should listen on for incoming traffic
-    # listen [::]:443 ssl; # IPv6 address
     listen 443 ssl;
         # enable the TLSv1.2 protocol. TLS (Transport Layer Security)depending on your security requirements 
     ssl_protocols TLSv1.2;

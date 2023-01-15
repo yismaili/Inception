@@ -5,15 +5,19 @@ volumes:
   db:
     driver: local
     # name: db
+    driver: local
     driver_opts:
       o: bind
-      device: /Users/yismaili/Desktop/Inception/srcs/data/mariadb
+      type: none
+      device: /home/yismaili/Desktop/Inception/srcs/data/mariadb
   wp:
     driver: local
-    # name: wp
+    # name: wpi
+    driver: local
     driver_opts:
+      type: none
       o: bind
-      device: /Users/yismaili/Desktop/Inception/srcs/data/wordpress
+      device: /home/yismaili/Desktop/Inception/srcs/data/wordpress
 # networks of drivers
 networks:
   appnwrk:
@@ -40,7 +44,7 @@ services:
         - .env
       depends_on:
         - mariadb
-      build: ./requirements/wordpress
+      build: ./requirements/WordPress
       image: wordpress:inceotion
       restart: on-failure
       ports:
