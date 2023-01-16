@@ -5,19 +5,17 @@ volumes:
   db:
     driver: local
     # name: db
-    driver: local
     driver_opts:
       o: bind
       type: none
-      device: /home/yismaili/Desktop/Inception/srcs/data/mariadb
+      device: /Users/yismaili/Desktop/Inception/srcs/data/mariadb
   wp:
     driver: local
     # name: wpi
-    driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/yismaili/Desktop/Inception/srcs/data/wordpress
+      device: /Users/yismaili/Desktop/Inception/srcs/data/wordpress
 # networks of drivers
 networks:
   appnwrk:

@@ -11,15 +11,18 @@ server {
         # the root directory for a website
     root /var/www/html;
         # specify the names of the files that should be used as the default index file for a website
-    index index.php index.html index.htm index.nginx-debian.html;
-        # handle requests for specific URI paths ç to serve the requested URI, and if it does not exist
-    location / {
-        try_files $uri $uri/ /index.php$is_args$args;
-    }
+    index index.php index.html index.htm;
+        # handle requests for specific URI paths to serve the requested URI, and if it does not exist
+    # location / {
+    #     try_files $uri $uri/ /index.php$is_args$args; #dynamic parameters passed in the request and the $uri variable is the requested URI
+    # }
+        #location block It uses a regular expression to match requests that end with .php
      location ~ \.php$ {
-        try_files $uri =404;
-        fastcgi_split_path_info ^(.+\.php)(/.+)$;
-            # Nginx to pass the request to a FastCGI server listening on wordpress:9000. This could be a server running on the local machine
+            #check for the existence of files or directorie
+    #  try_files $uri =404;
+       #split the PATH_INFO variable, which is passed to the PHP script, into two separate variables, fastcgi_path_info and fastcgi_script_name.
+        # fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            # Nginx to pass the request to a FastCGI server listening on wordpress:9000
         fastcgi_pass wordpress:9000; 
             # specify the default script that should be executed when a directory is requested
         fastcgi_index index.php;
@@ -30,7 +33,7 @@ server {
                 # The $document_root variable specifies the root directory of the current server block
                 # the $fastcgi_script_name variable specifies the script name portion of the fastcgi_split_path_info expression. Together, these variables specify the full path of the script that is being requested
          fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        #     # The $fastcgi_path_info variable specifies the path info portion of the fastcgi_split_path_info expression -  sets the PATH_INFO FastCGI parameter to the value of $fastcgi_path_info.
-         fastcgi_param PATH_INFO $fastcgi_path_info;
+             # The $fastcgi_path_info variable specifies the path info portion of the fastcgi_split_path_info expression -  sets the PATH_INFO FastCGI parameter to the value of $fastcgi_path_info.
+        #  fastcgi_param PATH_INFO $fastcgi_path_info;
     }
 }
