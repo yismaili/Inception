@@ -8,14 +8,14 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: /Users/yismaili/Desktop/Inception/srcs/data/mariadb
+      device: /home/y/Desktop/Inception/srcs/data/mariadb
   wp:
     driver: local
     # name: wpi
     driver_opts:
       type: none
       o: bind
-      device: /Users/yismaili/Desktop/Inception/srcs/data/wordpress
+      device: /home/y/Desktop/Inception/srcs/data/wordpress
 # networks of drivers
 networks:
   appnwrk:
@@ -91,13 +91,10 @@ services:
     image: redis:inceotion
     depends_on:
         - wordpress
-    sysctls:
-      - net.core.somaxconn=511
     ports: 
        - 6379:6379
     networks:
       - appnwrk
-    privileged: true
   ftp:
     container_name: ftp
     build: ./bonus/ftp_server
