@@ -13,7 +13,7 @@ server {
         # specify the names of the files that should be used as the default index file for a website
     index index.php index.html index.htm;
         #location block It uses a regular expression to match requests that end with .php
-     location ~ \.php$ {
+    location ~ \.php$ {
             # Nginx to pass the request to a FastCGI server listening on wordpress:9000
         fastcgi_pass wordpress:9000; 
             # specify the default script that should be executed when a directory is requested
