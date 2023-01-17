@@ -4,22 +4,19 @@ version: "3"
 volumes:
   db:
     driver: local
-    # name: db
     driver_opts:
       o: bind
       type: none
-      device: /home/y/Desktop/Inception/srcs/data/mariadb
+      device: /Users/yismaili/Desktop/Inception/srcs/data/mariadb
   wp:
     driver: local
-    # name: wpi
     driver_opts:
       type: none
       o: bind
-      device: /home/y/Desktop/Inception/srcs/data/wordpress
+      device: /Users/yismaili/Desktop/Inception/srcs/data/wordpress
 # networks of drivers
 networks:
   appnwrk:
-    # name: appnwrk
     driver: bridge
 # run containers 
 services: 
