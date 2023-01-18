@@ -210,3 +210,34 @@ Docker Compose is a tool for defining and running multi-container Docker applica
 - stop the services
 
                 docker-compose down
+# Nginx
+- What is Nginx 
+  
+   open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more. It started out as a web server designed for maximum performance and stability. In addition to its HTTP server capabilities, NGINX can also function as a proxy server for email (IMAP, POP3, and SMTP) and a reverse proxy and load balancer for HTTP, TCP, and UDP servers.
+  
+- Nginx lifecycle
+
+・The master process reads the config and binds the port
+
+・The master process launches the worker processes
+
+・The workers start listening and process requests
+
+・When the config is reloaded, new workers are created and replace the old workers
+
+・The master process is dropped and processing ends.
+
+<img width="752" alt="Screen Shot 2023-01-18 at 3 06 56 PM" src="https://user-images.githubusercontent.com/69278312/213192311-15e6b2b3-c54b-44e0-a4fa-085acf0c1464.png">
+
+- What is PHP FPM
+is an alternative PHP FastCGI implementation with some additional features useful for sites of any size, especially busier sites. It allows for handling of PHP processes in an optimized way, improving the performance of PHP applications
+・PHP FastCGI Process Manager
+
+- PHP file acquisition flow
+
+<img width="752" alt="Screen Shot 2023-01-18 at 3 10 41 PM" src="https://user-images.githubusercontent.com/69278312/213193128-3b9c23f5-81e7-4533-8812-88ade880ef2f.png">
+
+- Flow of static file acquisition
+
+<img width="752" alt="Screen Shot 2023-01-18 at 3 11 34 PM" src="https://user-images.githubusercontent.com/69278312/213193319-bbf0634c-386a-42a7-b200-f89f8f8d2d6e.png">
+
