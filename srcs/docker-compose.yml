@@ -7,13 +7,13 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: /home/y/Desktop/Inception/srcs/data/mariadb
+      device: /home/yismaili/data/mariadb
   wp:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/y/Desktop/Inception/srcs/data/wordpress
+      device: /home/yismaili/data/wordpress
 # networks of drivers
 networks:
   appnwrk:
@@ -65,7 +65,7 @@ services:
         - appnwrk
   adminer:
     container_name: adminer
-    build: ./bonus/Adminer
+    build:  ./requirements/bonus/Adminer
     image: adminer:inceotion
     depends_on:
         - wordpress
@@ -76,15 +76,15 @@ services:
       - appnwrk
   wibsete:
     container_name: wibset
-    build: ./bonus/website
+    build:  ./requirements/bonus/website
     image: wibset:inceotion
     ports:
-      - 80:80
+      - 5000:80
     networks:
       - appnwrk
   redis:
     container_name: redis
-    build: ./bonus/redis
+    build:  ./requirements/bonus/redis
     image: redis:inceotion
     depends_on:
         - wordpress
@@ -94,7 +94,7 @@ services:
       - appnwrk
   ftp:
     container_name: ftp
-    build: ./bonus/ftp_server
+    build:  ./requirements/bonus/ftp_server
     image: ftp:inceotion
     depends_on:
         - wordpress
@@ -111,7 +111,7 @@ services:
     restart: always
   cadvisor:
     container_name: cadvisor
-    build: ./bonus/cAdvisor
+    build:  ./requirements/bonus/cAdvisor
     image: cadvisor:inceotion
     volumes:
       - /:/rootfs:ro # access and collect resource usage data from the host's filesystem

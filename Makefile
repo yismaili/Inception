@@ -1,11 +1,11 @@
 
 build:
 	docker-compose -f ./srcs/docker-compose.yml build
-	mkdir -p srcs/data/mariadb
-	mkdir -p srcs/data/wordpress
+	mkdir -p /home/yismaili/data/mariadb
+	mkdir -p /home/yismaili/data/wordpress
 
 up:
-	docker-compose -f ./srcs/docker-compose.yml up 
+	docker-compose -f ./srcs/docker-compose.yml up -d
 
 down:
 	docker-compose -f ./srcs/docker-compose.yml down
@@ -25,6 +25,6 @@ clean:
 	docker rmi -f $$(docker images -qa);\
 	docker volume rm $$(docker volume ls -q);\
 	docker network rm $$(docker network ls -q);\
-	rm -rf srcs/data/mariadb/ *\
-	rm -rf srcs/data/wordpress/ *\
+	rm -rf /home/yismaili/data/mariadb/\
+	rm -rf /home/yismaili/data/wordpress/\
 .PHONY: build up down restart clean	
