@@ -1,6 +1,6 @@
 FROM debian:buster
 
-RUN apt update && apt install  php php-curl php-cli php-mysql php-gd -y 
+RUN apt update && apt install php php-mysql -y 
 COPY  ./tool/conf.sh /tmp/conf.sh
 RUN chmod +x /tmp/conf.sh
 ENTRYPOINT [ "/tmp/conf.sh" ]

@@ -15,14 +15,14 @@
 	sed -i "s/password_here/${DB_PSSWRD}/g" "/var/www/html/wp-config-sample.php"
 	sed -i "s/localhost/${DB_HOST}/g" "/var/www/html/wp-config-sample.php"
 	cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php;
-	wp config set WP_REDIS_HOST redis --allow-root
-	wp config set WP_REDIS_PORT 6379 --allow-root
-	wp config set WP_CACHE true --allow-root
 	# install WordPress using the specified options
 	wp core install --allow-root --url=$URL --title=$TITLE --admin_user=$ADMIN_USER --admin_password=$ADMIN_PSSWRD --admin_email=$ADMIN_EMAIL
 	wp user create --allow-root ${DB_USER} ${USER_EMAIL} --user_pass=${DB_PSSWRD}; # create a new user for your WordPress site
-    wp plugin install  --allow-root redis-cache --activate --allow-root
+    wp plugin install  --allow-root redis-cache --activate
    	wp redis  --allow-root enable
-	echo "Wordpress: set up!"
+	wp config set WP_REDIS_HOST ${REDIS_HOST} --allow-root
+	wp config set WP_REDIS_PORT ${REDIS_PORT} --allow-root
+	wp config set WP_CACHE ${REDIS_CACHE} --allow-root
+	echo "Installation successful !"
  fi
 exec "$@"

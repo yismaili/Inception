@@ -7,13 +7,13 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: /Users/yismaili/Desktop/Inception/srcs/data/mariadb
+      device: /home/y/Desktop/Inception/srcs/data/mariadb
   wp:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /Users/yismaili/Desktop/Inception/srcs/data/wordpress
+      device: /home/y/Desktop/Inception/srcs/data/wordpress
 # networks of drivers
 networks:
   appnwrk:
@@ -28,7 +28,7 @@ services:
         - 3360:3360
       build: ./requirements/mariadb
       image: mariadb:inceotion
-      restart: on-failure
+      restart: always
       volumes:
         - db:/var/lib/mysql
       networks:
@@ -41,7 +41,7 @@ services:
         - mariadb
       build: ./requirements/WordPress
       image: wordpress:inceotion
-      restart: on-failure
+      restart: always
       ports:
         - 9000:9000
       volumes:
@@ -56,7 +56,7 @@ services:
       image: nginx:inceotion
       depends_on:
         - wordpress
-      restart: on-failure
+      restart: always
       ports: 
        - 443:443
       volumes:
@@ -69,7 +69,7 @@ services:
     image: adminer:inceotion
     depends_on:
         - wordpress
-    restart: on-failure
+    restart: always
     ports:
       - "8282:8282"
     networks:
@@ -108,7 +108,7 @@ services:
       - .env
     volumes:
       - wp:/home/vlm/ftp
-    restart: on-failure
+    restart: always
   cadvisor:
     container_name: cadvisor
     build: ./bonus/cAdvisor
@@ -122,4 +122,4 @@ services:
       - "8080:8080"
     networks:
       - appnwrk
-    restart: on-failure
+    restart: always
